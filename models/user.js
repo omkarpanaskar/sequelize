@@ -17,6 +17,4 @@ class User extends Model {
     })
   }
 };
-const all=User.findAll()
-console.log("::\n",all);
 module.exports = User;
