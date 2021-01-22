@@ -1,9 +1,9 @@
 const http = require('http');
-const dbimp=require('./dataimp')
-const db=require('./dbconnect')
-const express=require('express')
-const app=express()
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World!');
-}).listen(8080); 
+const port = 8080
+const app = require('./app')
+const server = http.createServer(app, (req, res, next) => {
+  res.end('welcome')
+})
+server.listen(port, () => {
+  console.log(`server running on localhost://${port}\n`);
+});

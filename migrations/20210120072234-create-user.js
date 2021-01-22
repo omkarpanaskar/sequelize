@@ -6,20 +6,16 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        
+        type: Sequelize.INTEGER
       },
       fname: {
-        type: Sequelize.STRING,
-        field:"firstName"
+        type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING,
-        field:'email'
+        type: Sequelize.STRING
       },
       phoneNo: {
-        type: Sequelize.INTEGER,
-        field:'phoneNo'
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
