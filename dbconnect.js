@@ -1,7 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const PostData = require('./config/PostData').postData;
-const UserData = require('./config/UserData').data;
-const app = require('./app');
 const config = require('./config/config.json').development
 const sequelize = new Sequelize(config)
 const Post = sequelize.define('Posts', {
@@ -63,10 +61,9 @@ sequelize.sync({        // This creates the table if it doesn't exist (and does 
   console.log('succesfull connected');
 }).then(() => {
   // Post.bulkCreate(PostData) // add data to database table 
-  User.bulkCreate(UserData)
   console.log("\n::data inserted");
 })
   .catch((err) => {
-    console.log('unable to conect', err)
+    console.log('unable to connect', err)
   })
 module.exports = { sequelize }

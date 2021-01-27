@@ -7,14 +7,13 @@ const search = async (req, res, next) => {
         let response = {
             userData
         }
-        console.log("::\n",program);
+        console.log("Program::\n",program);
         res.render('index', {response})
     } catch (error) {
         console.log("controller.users.search::", error);
         next(error)
     }
 }
-
 module.exports = search;
 
 

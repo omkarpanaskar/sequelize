@@ -1,10 +1,8 @@
 'use strict';
 const {
-  Model
+  Sequelize
 } = require('sequelize');
-// const config = require('../config/config.json').development
-// const sequelize = new Sequelize(config)
-class User extends Model {
+class User extends Sequelize.Model {
   static init(sequelize, DataTypes) {
     return super.init({
       fname: DataTypes.STRING,
@@ -17,6 +15,4 @@ class User extends Model {
     })
   }
 };
-const all=User.findAll()
-console.log("::\n",all);
 module.exports = User;

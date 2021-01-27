@@ -25,7 +25,6 @@ const models = {
 Object.values(models)
 	.filter((model) => typeof model.init === 'function')
 	.forEach((model) => {
-    console.log('init');
      model.init(sequelize, Sequelize)});
 
 // Run `.associate` if it exists,

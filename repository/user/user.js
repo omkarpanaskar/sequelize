@@ -1,4 +1,6 @@
-const { User } = require('../../models')
+const { User, sequelize } = require('../../models')
+const UserData = require('../../config/UserData').data;
+const { Op } = require("sequelize");
 const search = async () => {
     try {
         console.log("repo");
@@ -15,11 +17,22 @@ const search = async () => {
         //         }
         //     ]
         // }
-        result = await User.findOne({
-            attributes:['fname']
+        const newUser= await User.bulkCreate(UserData)
+        result = await User.findAll({
+            where: {
+                    fname:{
+                        [Op.in]:['Lenore','Lareina']
+                    }   
+            },
+            order: [
+                ['fname','DESC'] // order by descending order
+            ],
+            // attributes: [
+            //     [sequelize.fn('', sequelize.col('fname')), 'Fletcher']
+            // ] 
         })
         // console.log(result.every(user => user instanceof User)); // true
-        // console.log("All users:", (result));
+        console.log("All users:", (result));
         return result
     } catch (error) {
         console.log("repository.user.user.search::", error);
