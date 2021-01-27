@@ -15,4 +15,8 @@ class User extends Sequelize.Model {
     })
   }
 };
+<<<<<<< HEAD
 module.exports = User;
+=======
+module.exports = User;
+>>>>>>> e69d8c95d43d914bce467a6ec10541ed81116c60
